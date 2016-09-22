@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class Usuario extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,12 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-    	DB::table('perfil')->insert([
-    		['nome' => "Administrador"],
-    		['nome' => "Autor"]
-    	]);
-
-    	DB::table('usuario')->insert([
+        DB::table('usuario')->insert([
         	[
         		'nome' => str_random(10),
     			'perfil_id'=>1

@@ -14,7 +14,7 @@ class Usuario extends Migration
     {
         Schema::create('usuario', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_perfil');
+            $table->integer('perfil_id');
             $table->char('nome',200);
             $table->char('email',200);
             $table->timestamps();
