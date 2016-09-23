@@ -11,32 +11,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-    	DB::table('perfil')->insert([
-    		['nome' => "Administrador"],
-    		['nome' => "Autor"]
-    	]);
+        // Inserindo Perfis
+        $perfil = \App\Perfil::create(['nome' => "Administrador"]);
+        $perfil2 = \App\Perfil::create(['nome' => "Autor"]);
 
-    	DB::table('usuario')->insert([
-        	[
-        		'nome' => str_random(10),
-    			'perfil_id'=>1
-    		],
-    		[
-        		'nome' => str_random(10),
-    			'perfil_id'=>1
-    		],
-    		[
-        		'nome' => str_random(10),
-    			'perfil_id'=>1
-    		],
-    		[
-        		'nome' => str_random(10),
-    			'perfil_id'=>2
-    		],
-    		[
-        		'nome' => str_random(10),
-    			'perfil_id'=>2
-    		]
+        // Inserindo usuários
+        $usuario1 = \App\Usuario::create([
+            'nome' => str_random(10),
+            'perfil_id'=>$perfil->id
         ]);
+        $usuario2 = \App\Usuario::create([
+            'nome' => str_random(10),
+            'perfil_id'=>$perfil->id
+        ]);
+        $usuario3 = \App\Usuario::create([
+            'nome' => str_random(10),
+            'perfil_id'=>$perfil2->id
+        ]);
+    	
     }
 }
